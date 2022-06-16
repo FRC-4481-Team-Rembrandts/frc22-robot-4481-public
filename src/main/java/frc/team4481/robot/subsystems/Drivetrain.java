@@ -187,7 +187,6 @@ public class Drivetrain extends SubsystemBase<DrivetrainController> {
             case PATH_FOLLOWING:
                 double heading = Math.toRadians(mIMU.getYaw());
 
-                // TODO offload conversion?
                 //calculate distance driver
                 double posL = mLeadLeftMotor.getSelectedSensorPosition(0)/  2048.0 * GEAR_RATIO * CIRCUMFERENCE_WHEELS;
                 double posR = mLeadRightMotor.getSelectedSensorPosition(0)/ 2048.0 * GEAR_RATIO * CIRCUMFERENCE_WHEELS;
@@ -236,7 +235,7 @@ public class Drivetrain extends SubsystemBase<DrivetrainController> {
             mShooterController.setVisionAtSetpoint(true);
         }
 
-        //make a foto of the current vision view
+        //make a foto of the current camera view
         if (mSubsystemController.getMakeSnapshot()) {
             mVisionTable.getEntry("snapshot").setNumber(1);
         } else {
